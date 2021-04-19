@@ -63,7 +63,9 @@ public abstract class AbstractBankAccount<T> implements Account {
 
     public void closeAccount() throws AccountException {
         if (getBalance() > 0)
-            throw new AccountException(String.format("Before closing your Account, Withdraw all your money please! Current balance: %d", balance), balance);
+            throw new AccountException(
+                    String.format("Before closing your Account, Withdraw all your money please! Current balance: %d", balance),
+                    balance);
         else {
             System.out.println("Your account is closed!");
         }

@@ -19,7 +19,9 @@ public class IndividualAccount extends AbstractBankAccount<String> {
 
     @Override
     public String toString() {
-        return String.format("Person: %s   Account number: %s   Balance: %d   Currency: %s", userName, getAccountNumber(), getBalance(), currency);
+        return String.format(
+                "Person: %s   Account number: %s   Balance: %d   Currency: %s",
+                userName, getAccountNumber(), getBalance(), currency);
     }
 
     @Override
@@ -37,12 +39,15 @@ public class IndividualAccount extends AbstractBankAccount<String> {
         if (getStatus()) {
             if (getBalance() >= sum) {
                 setBalance(getBalance() - sum);
-                transactions.add(String.format("[Individual account] Withdraw transaction\n Amount: %f, Fee: %f", sum * 0.9, sum * 0.1));
+                transactions.add(
+                        String.format("[Individual account] Withdraw transaction\n Amount: %f, Fee: %f", sum * 0.9, sum * 0.1));
             } else {
-                throw new AccountException(String.format("Sorry! You do not have this amount of money! Current balance: %d", balance), balance);
+                throw new AccountException(
+                        String.format("Sorry! You do not have this amount of money! Current balance: %d", balance), balance);
             }
         } else {
-            throw new AccountException(String.format("Sorry! We can not withdraw money from closed account! Account status: %s", status), status);
+            throw new AccountException(
+                    String.format("Sorry! We can not withdraw money from closed account! Account status: %s", status), status);
         }
     }
 
