@@ -1,7 +1,7 @@
 # Java Bank Account using OOP
 
  Task:
-Exemple https://github.com/NinaAlb/CarStore
+Example https://github.com/NinaAlb/CarStore
 ### Придумать идею для проекта и реализовать ее, используя пройденный материал из лекции по ООП:
 - Применить 4 принципа ООП
 - Абстрактные классы (с обычными и абстрактными методами)
