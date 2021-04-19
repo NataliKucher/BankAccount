@@ -16,25 +16,25 @@ public class App {
     }
 
     private static void test_individual_account_transactions() throws AccountException {
-        Account my_individual = new IndividualAccount(
+        Account individual = new IndividualAccount(
                 "IBAN67345678912345", Currency.USD, true, "Kucheriava Nataliia");
 
-        my_individual.printAccountInfo();
+        individual.printAccountInfo();
         // deposit money
-        my_individual.deposit(3_000_000);
-        my_individual.printBalance();
+        individual.deposit(3_000_000);
+        individual.printBalance();
         // withdraw money
-        my_individual.withdraw(1_000_000);
-        my_individual.printBalance();
+        individual.withdraw(1_000_000);
+        individual.printBalance();
         // print all Transactions
-        my_individual.printTransactions();
+        individual.printTransactions();
     }
 
     private static void test_close_individual_account() throws AccountException {
-        Account my_individual = new IndividualAccount(
+        Account individual = new IndividualAccount(
                 "IBAN456345778912345", Currency.USD, true, "TestClose Individual");
 
-        my_individual.closeAccount();
+        individual.closeAccount();
     }
 
     private static void test_negative_transactions_with_closed_account() {
@@ -65,12 +65,12 @@ public class App {
     }
 
     private static void test_negative_close_not_empty_account() throws AccountException {
-        Account my_individual = new IndividualAccount(
+        Account individual = new IndividualAccount(
                 "IBAN456345778912345", Currency.USD, true, "TestClose Negative");
-        my_individual.deposit(1_000_000);
+        individual.deposit(1_000_000);
 
         try {
-            my_individual.closeAccount();
+            individual.closeAccount();
         } catch (AccountException ex) {
             ex.printStackTrace();
             System.out.println(ex.getMessage());

@@ -17,7 +17,8 @@ public class BusinessAccount extends AbstractBankAccount<Long> {
 
     @Override
     public String toString() {
-        return String.format("Company: %s   Account number: %s   Balance: %d   Currency: %s", companyName, getAccountNumber(), getBalance(), currency);
+        return String.format("Company: %s   Account number: %s   Balance: %d   Currency: %s",
+                companyName, getAccountNumber(), getBalance(), currency);
     }
 
     @Override
@@ -37,10 +38,12 @@ public class BusinessAccount extends AbstractBankAccount<Long> {
                 setBalance(getBalance() - sum);
                 transactions.add(String.format("[Business account] Withdraw transaction\n Amount: %f, Fee: %f", sum * 0.95, sum * 0.05));
             } else {
-                throw new AccountException(String.format("Sorry! You do not have this amount of money! Current balance: %d", balance), balance);
+                throw new AccountException(
+                        String.format("Sorry! You do not have this amount of money! Current balance: %d", balance), balance);
             }
         } else {
-            throw new AccountException(String.format("Sorry! We can not withdraw money from closed account! Account status: %s", status), status);
+            throw new AccountException(
+                    String.format("Sorry! We can not withdraw money from closed account! Account status: %s", status), status);
         }
     }
 
