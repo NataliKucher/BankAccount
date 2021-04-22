@@ -10,6 +10,7 @@ public class App {
         testNegativeTransactionsWithClosedAccount();
         testNegativeWithdrawFromEmptyAccount();
         testNegativeCloseNotEmptyAccount();
+        
         testBusinessAccountTransactions();
         testCloseBusinessAccount();
     }
