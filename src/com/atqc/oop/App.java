@@ -4,18 +4,17 @@ public class App {
 
     public static void main(String[] args) throws AccountException {
 
-        test_individual_account_transactions();
-        test_close_individual_account();
+        testIndividualAccountTransactions();
+        testCloseIndividualAccount();
 
-        test_negative_transactions_with_closed_account();
-        test_negative_withdraw_from_empty_account();
-        test_negative_close_not_empty_account();
-
-        test_business_account_transactions();
-        test_close_business_account();
+        testNegativeTransactionsWithClosedAccount();
+        testNegativeWithdrawFromEmptyAccount();
+        testNegativeCloseNotEmptyAccount();
+        testBusinessAccountTransactions();
+        testCloseBusinessAccount();
     }
 
-    private static void test_individual_account_transactions() throws AccountException {
+    private static void testIndividualAccountTransactions() throws AccountException {
         Account individual = new IndividualAccount(
                 "IBAN67345678912345", Currency.USD, true, "Kucheriava Nataliia");
 
@@ -30,14 +29,14 @@ public class App {
         individual.printTransactions();
     }
 
-    private static void test_close_individual_account() throws AccountException {
+    private static void testCloseIndividualAccount() throws AccountException {
         Account individual = new IndividualAccount(
                 "IBAN456345778912345", Currency.USD, true, "TestClose Individual");
 
         individual.closeAccount();
     }
 
-    private static void test_negative_transactions_with_closed_account() {
+    private static void testNegativeTransactionsWithClosedAccount() {
         Account individual = new IndividualAccount();
         individual.printAccountInfo();
         // can't withdraw money from Account with status: false, balance: 0
@@ -51,7 +50,7 @@ public class App {
         individual.deposit(1_000_000);
     }
 
-    private static void test_negative_withdraw_from_empty_account() {
+    private static void testNegativeWithdrawFromEmptyAccount() {
         Account individual = new IndividualAccount(
                 "IBAN12345678912345", Currency.UAH, true, "TestWithdraw Negative");
         individual.printAccountInfo();
@@ -64,7 +63,7 @@ public class App {
         }
     }
 
-    private static void test_negative_close_not_empty_account() throws AccountException {
+    private static void testNegativeCloseNotEmptyAccount() {
         Account individual = new IndividualAccount(
                 "IBAN456345778912345", Currency.USD, true, "TestClose Negative");
         individual.deposit(1_000_000);
@@ -77,7 +76,7 @@ public class App {
         }
     }
 
-    private static void test_business_account_transactions() throws AccountException {
+    private static void testBusinessAccountTransactions() throws AccountException {
         Account business = new BusinessAccount(
                 123456789123345L, Currency.EUR, true, "Yalantis");
         business.printAccountInfo();
@@ -92,7 +91,7 @@ public class App {
         business.printTransactions();
     }
 
-    private static void test_close_business_account() throws AccountException {
+    private static void testCloseBusinessAccount() throws AccountException {
         Account business = new BusinessAccount(
                 123456789123345L, Currency.EUR, true, "TestClose Business");
         business.closeAccount();
